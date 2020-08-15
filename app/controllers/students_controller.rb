@@ -5,18 +5,19 @@ class StudentsController < ApplicationController
         @students = Student.all
     end
     
-    def new ##working
+    def new 
         @student = Student.new
+        @student.subjects.build
     end  
 
-    def create ## working
+    def create
         @student = Student.new(student_params)
-        if @student.save
-            redirect_to students_path
-        else
-            render :new
-        end
-    end
+            if @student.save
+                redirect_to student_path(@student)
+            else
+                render :new
+            end
+      end
 
     def edit ##working
     end
@@ -34,12 +35,20 @@ class StudentsController < ApplicationController
         redirect_to students_path
     end 
 
- private ## working
+ private 
     def student_params
-        params.require(:student).permit(:name, :age, :grade_level)
+        params.require(:student).permit(:name, :age, :grade_level, 
+        subjects_attributes: [
+            :english,
+            :math,
+            :science,
+            :history,
+            :foreign_language
+          ]
+       )
     end
 
-    def set_student
+    def set_student ## working
         @student = Student.find_by_id(params[:id])
     end
 end

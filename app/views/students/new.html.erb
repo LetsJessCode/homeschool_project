@@ -1,22 +1,27 @@
  <h1>Create New HomeSchool Profile</h1>
 
-<%= form_for(Student.new) do |f| %>
-  First name : <%= f.text_field :name %><br />
-  Age :  <%= f.text_field :age %><br />
-  Grade : <%= f.text_field :grade_level %><br />
+<%= form_for @student do |f| %>
+  Name: <%= f.text_field :name %><br />
+  Age:  <%= f.text_field :age %><br />
+  Grade: <%= f.text_field :grade_level %><br />
+<hr>
+<h4>Which subject(s) will your child be learning? </h4>
+
+  <%= f.nested_fields_for :subjects do |subj| %>
+    <%= subj.label :english %>
+    <%= subj.check_box :english %> <br>
+
+    <%= subj.label :math %>
+    <%= subj.check_box :math %> <br>
+  
+   <%= subj.label :science %>
+   <%= subj.check_box :science %> <br>
+
+    <%= subj.label :history %>
+    <%= subj.check_box :history %> <br>
+
+     <%= subj.label :foreign_language %>
+    <%= subj.check_box :foreign_language %> <br><br>
+  <% end %>
   <%= f.submit "Create Profile"%>
-<% end %>
-
-
-<!-- <%= form_tag students_path do %>
-  <label>Child's Name:</label>
-  <%= text_field_tag :'student[name]' %><br>
- 
-  <label>Child's Age:</label>
-  <%= text_field_tag :'student[age]' %><br>
-
-  <label>Child's Grade:</label>
-  <%= text_field_tag :'student[grade_level]' %><br>
- 
-  <%= submit_tag "Create Profile" %>
-<% end %>>
+<% end %><hr>
