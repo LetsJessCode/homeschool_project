@@ -1,0 +1,7 @@
+<h1> Student List </h1>
+<hr>
+<% @students.each do|student| %>
+    <h3><%= student.name %></h3>
+    <h5>Age: <%= student.age %> |  Grade: <%= student.grade_level %></h5>
+    <hr>
+<% end %>

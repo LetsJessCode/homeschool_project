@@ -1,0 +1,14 @@
+<h1> Edit Page </h1>
+
+  <%= form_for @student do |f| %>
+        <%= f.label "Child's Name:" %>
+        <%= f.text_field :name %><br>
+        
+        <%= f.label 'Age:' %>
+        <%= f.text_field :age %><br>
+
+        <%= f.label 'Grade:' %>
+        <%= f.text_field :grade_level %><br>
+    
+        <%= f.submit "Update Child" %>
+<% end %>
