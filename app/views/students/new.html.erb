@@ -1,5 +1,14 @@
  <h1>Create New HomeSchool Profile</h1>
- <%= form_tag students_path do %>
+
+<%= form_for(Student.new) do |f| %>
+  First name : <%= f.text_field :name %><br />
+  Age :  <%= f.text_field :age %><br />
+  Grade : <%= f.text_field :grade_level %><br />
+  <%= f.submit "Create Profile"%>
+<% end %>
+
+
+<!-- <%= form_tag students_path do %>
   <label>Child's Name:</label>
   <%= text_field_tag :'student[name]' %><br>
  
@@ -10,4 +19,4 @@
   <%= text_field_tag :'student[grade_level]' %><br>
  
   <%= submit_tag "Create Profile" %>
-<% end %>
+<% end %>>

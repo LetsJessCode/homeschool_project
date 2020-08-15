@@ -1,7 +1,8 @@
 <h1> Student List </h1>
 <hr>
+<%= link_to "Add New Child", new_student_path(@student) %>
 <% @students.each do|student| %>
-    <h3><%= student.name %></h3>
+    <h3><%= link_to student.name %></h3>
     <h5>Age: <%= student.age %> |  Grade: <%= student.grade_level %></h5>
     <hr>
 <% end %>

@@ -1,5 +1,9 @@
  <h1> student show page </h1>
  <hr><hr>
-
 <h3><%= @student.name %></h3> 
 <h4>Age: <%= @student.age %>   |   Grade: <%= @student.grade_level %></h4>
+
+
+<%= link_to "Edit", edit_student_path(@student)  %>
+
+<p><%= link_to "Delete", student_path(@student), method: "delete" %></p>
