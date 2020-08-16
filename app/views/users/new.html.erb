@@ -1,0 +1,18 @@
+<h1>Create Your Homeschool Account</h1>
+
+<%= form_for @user, url: signup_path do |f| %>
+<div>   
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</div>
+<div>   
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+</div>
+<div>   
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+</div>
+
+    <%=f.submit "Signup" %>
+   <% end %> 

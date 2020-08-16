@@ -12,9 +12,14 @@
   <body>
     <nav>
       <ul>
+
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Homeroom", students_path %></li>
-        <li><%= link_to "New Child", new_student_path %></li>
+        <% unless logged_in? %> 
+           <li><%= link_to "Signup", signup_path %></li> 
+        <% else %>
+            <li><%= link_to "Homeroom", students_path %></li>
+            <li><%= link_to "New Child", new_student_path %></li>
+        <% end %>
       </ul>
     </nav>
     <%= yield %>
