@@ -1,6 +1,8 @@
 <h1> Student List </h1>
 <hr>
-<%= link_to "Add New Child", new_student_path(@student) %>
+ <% time = Time.new %>
+<h5><%= time.strftime("Today is %A") %>, the <%=time.strftime("%d of %B, %Y") %>.</h5>
+<hr>
 <% @students.each do|student| %>
     <h3><%= link_to student.name %></h3>
     <h5>Age: <%= student.age %> |  Grade: <%= student.grade_level %></h5>

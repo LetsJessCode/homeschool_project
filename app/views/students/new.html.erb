@@ -7,7 +7,7 @@
 <hr>
 <h4>Which subject(s) will your child be learning? </h4>
 
-  <%= f.nested_fields_for :subjects do |subj| %>
+  <%= f.fields_for :subjects do |subj| %>
     <%= subj.label :english %>
     <%= subj.check_box :english %> <br>
 

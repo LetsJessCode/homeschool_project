@@ -10,6 +10,15 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Homeroom", students_path %></li>
+        <li><%= link_to "New Child", new_student_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
+
+
   </body>
 </html>
