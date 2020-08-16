@@ -1,6 +1,6 @@
  <h1>Create New HomeSchool Profile</h1>
 
-<%= form_for @student do |f| %>
+<%= form_for([current_user, @student]) do |f| %>
   Name: <%= f.text_field :name %><br />
   Age:  <%= f.text_field :age %><br />
   Grade: <%= f.text_field :grade_level %><br />
@@ -22,6 +22,6 @@
 
      <%= subj.label :foreign_language %>
     <%= subj.check_box :foreign_language %> <br><br>
-  <% end %>
+  <% end %> 
   <%= f.submit "Create Profile"%>
-<% end %><hr>
+<% end %><hr> 

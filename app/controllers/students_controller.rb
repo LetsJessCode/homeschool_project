@@ -5,15 +5,15 @@ class StudentsController < ApplicationController
         @students = Student.all
     end
     
-    def new 
+    def new ##bugs!
         @student = Student.new
         @student.subjects.build
     end  
 
-    def create
-        @student = Student.new(student_params)
-            if @student.save
-                redirect_to student_path(@student)
+    def create #bugs!
+        @student = current_user.students.build(student_params)
+            if @student.save ###undefined method `grade' for #<Student
+                redirect_to user_students_path(current_user)
             else
                 render :new
             end
@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
      
     def update ## working
         @student.update(student_params)
-        redirect_to student_path(@student)
+        redirect_to user_student_path(current_user, @student)
    end
 
    def show
@@ -32,7 +32,7 @@ class StudentsController < ApplicationController
 
    def destroy ## working
         @student.destroy
-        redirect_to students_path
+        redirect_to user_students_path(current_user)
     end 
 
  private 

@@ -5,7 +5,14 @@ Rails.application.routes.draw do
   get "/signup", to: "users#new", as: "signup" 
   post "/signup", to: "users#create"
 
-  resources :subjects
-  resources :students
+  get "/login", to: "sessions#new", as: "login"
+  post "/login", to: "sessions#create"
+  
+  delete "/logout", to: "sessions#destroy", as: "logout"
+  
+    resources :users, only: [] do
+      resources :students
+  end 
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
